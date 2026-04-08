@@ -1,0 +1,10 @@
+name: pucrio-sprint-4
+services:
+  machine-learn-api:
+    container_name: machine-learn-api
+    build: .
+    env_file: .env
+    volumes:
+      - .:/app
+    ports:
+      - ${PORT:-3001}:3001
