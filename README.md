@@ -23,11 +23,25 @@ cd pasta-do-projeto
 <h3>2. Configure o arquivo de variáveis de ambiente</h3>
 <p>Crie o arquivo <code>api/.env</code> com as variáveis necessárias.
 
-<h3>3. Suba a API com Docker</h3>
+<h3>3. Suba a API </h3>
+
+<h4>Subir com Docker</h4>
+
 <pre><code>cd api
 docker compose up --build</code></pre>
 
 <p>A API estará disponível em <code>http://localhost:3001</code> (ou na porta do <code>.env</code>).</p>
+
+<h4>Subir Sem Docker</h4>
+
+<pre><code>cd api
+python -m venv .venv</code></pre>
+
+<pre><code>cd api
+pip install -r requirements.txt</code></pre>
+
+<pre><code>cd api
+python app.py</code></pre>
 
 <h3>4. Acesse o Frontend</h3>
 <p>O frontend é redirecionado pela API. Abra no navegador:</p>
@@ -43,11 +57,7 @@ docker compose up --build</code></pre>
 
 <h2>🧪 Testes</h2>
 
-<h3>Instalação das dependências (uma vez)</h3>
-<pre><code>cd api
-python install -r requirements.txt</code></pre>
-
-<h3>Executar os testes com pytest</h3>
+<h3>Executar os testes com pytest (no container ou localmente)</h3>
 <pre><code>cd api
 pytest</code></pre>
 
