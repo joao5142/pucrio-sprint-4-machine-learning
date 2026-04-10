@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 
 
@@ -39,6 +39,8 @@ class WaterSearchSchema(BaseModel):
     """ Define como deve ser a estrutura de busca por ID """
     id: int = 1
 
+class WaterPathSchema(BaseModel):
+    id: int = Field(..., description="ID da amostra de água", json_schema_extra={"path": "id"})
 
 class WaterDelSchema(BaseModel):
     """ Define como deve ser a estrutura retornada apos uma remocao """

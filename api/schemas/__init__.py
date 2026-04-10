@@ -5,6 +5,7 @@ from schemas.water_schema import (
     WaterListSchema,
     WaterSearchSchema,
     WaterDelSchema,
+    WaterPathSchema,
     apresenta_water,
     apresenta_waters,
 )

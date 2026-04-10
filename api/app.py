@@ -88,36 +88,34 @@ def get_waters():
         session.close()
 
 
-@app.get("/water", tags=[water_tag],
+@app.get("/water/<int:id>", tags=[water_tag],
          responses={"200": WaterViewSchema, "400": ErrorSchema})
-def get_water(query: WaterSearchSchema):
+def get_water(path: WaterPathSchema):
     """Busca uma amostra de agua pelo ID."""
     session = Session()
     try:
-        water = session.query(Water).filter(Water.id == query.id).first()
+        water = session.query(Water).filter(Water.id == path.id).first()
         if not water:
             return {"message": "Amostra nao encontrada."}, 400
         return apresenta_water(water), 200
     finally:
         session.close()
 
-
-@app.delete("/water", tags=[water_tag],
+ 
+@app.delete("/water/<int:id>", tags=[water_tag],
             responses={"200": WaterDelSchema, "400": ErrorSchema})
-def delete_water(query: WaterSearchSchema):
+def delete_water(path: WaterPathSchema):
     """Remove uma amostra de agua pelo ID."""
     session = Session()
     try:
-        water = session.query(Water).filter(Water.id == query.id).first()
+        water = session.query(Water).filter(Water.id == path.id).first()
         if not water:
             return {"message": "Amostra nao encontrada."}, 400
         session.delete(water)
         session.commit()
-        return {"message": "Amostra removida.", "id": query.id}, 200
+        return {"message": "Amostra removida.", "id": water.id}, 200
     finally:
         session.close()
-
-
 # Executando a aplicacao Flask em modo debug
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=3001)
