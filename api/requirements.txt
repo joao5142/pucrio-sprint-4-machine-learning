@@ -14,3 +14,4 @@ pytest
 jupyter
 matplotlib
 python-dotenv
+imblearn
