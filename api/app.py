@@ -1,3 +1,4 @@
+import os
 from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
 
@@ -7,8 +8,9 @@ from model import Session, Water, Model, PreProcessador
 
 #  Iniciando a aplicacao Flask com OpenAPI
 info = Info(title="Water Quality API", version="1.0.0")
+front_folder = "./front" if os.path.exists("./front") else "../front"
 app = OpenAPI(
-    __name__, info=info, static_folder="../front", static_url_path="/front"
+    __name__, info=info, static_folder=front_folder, static_url_path="/front"
 )
 CORS(app)
 
