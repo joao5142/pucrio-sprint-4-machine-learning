@@ -32,7 +32,7 @@ docker compose up --build</code></pre>
 
 <p>A API estará disponível em <code>http://localhost:3001</code> (ou na porta do <code>.env</code>).</p>
 
-<h4>Subir Sem Docker</h4>
+<h4>Subir Sem Docker com Windows</h4>
 
 <pre><code>cd api
 python -m venv .venv</code></pre>
