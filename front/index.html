@@ -1,19 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
     <title>Pucrio Sprint 4</title>
-</head>
+  </head>
 
-<body>
-    Hello World! 
-</body>
+  <body>
+    <section class="potable">
+      <div class="content">
+        <h1 class="content__title">Amostras</h1>
+        <div>
+          <div class="content__inputs">
+            <div class="content__input-container">
+              <label>pH (0–14)</label>
+              <input
+                class="content__input"
+                value="7"
+                name="ph"
+                type="number"
+                min="0"
+                max="14"
+                step="0.1"
+                placeholder="Ex: 6.5 - 8.5"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Dureza (mg/L)</label>
+              <input
+                class="content__input"
+                value="58777"
+                name="hardness"
+                type="number"
+                min="0"
+                
+                placeholder="Ex: 100"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Sólidos - TDS (ppm)</label>
+              <input
+                class="content__input"
+                value="5877"
+                name="solids"
+                type="number"
+                min="0"
+                
+                placeholder="Ex: 500"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Cloraminas (ppm)</label>
+              <input
+                class="content__input"
+                value="2"
+                name="chloramines"
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                placeholder="Ex: 2"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Sulfato (mg/L)</label>
+              <input
+                class="content__input"
+                value="500"
+                name="sulfate"
+                type="number"
+                min="0"
+                placeholder="Ex: 250"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Condutividade (μS/cm)</label>
+              <input
+                class="content__input"
+                value="26"
+                name="conductivity"
+                type="number"
+                min="0"
+                placeholder="Ex: 300"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Carbono Orgânico (ppm)</label>
+              <input
+                class="content__input"
+                value="16"
+                name="organic_carbon"
+                type="number"
+                min="0"
+                step="0.1"
+                placeholder="Ex: 2"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Trihalometanos (μg/L)</label>
+              <input
+                class="content__input"
+                value="66"
+                name="trihalomethanes"
+                type="number"
+                min="0"
+                placeholder="Ex: 50"
+              />
+            </div>
+            <div class="content__input-container">
+              <label>Turbidez (NTU)</label>
+              <input
+                class="content__input"
+                value="7"
+                name="turbidity"
+                type="number"
+                min="0"
+              
+              
+                placeholder="Ex: 1"
+              />
+            </div>
+          </div>
+          <button class="content__btn" id="submit-button" type="button">
+            Adicionar
+          </button>
+        </div>
+        <div class="content__table-container">
+          <table class="content__table" id="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>pH</th>
+                <th>Dureza (mg/L)</th>
+                <th>Sólidos (ppm)</th>
+                <th>Cloraminas (ppm)</th>
+                <th>Sulfato (mg/L)</th>
+                <th>Condutividade (μS/cm)</th>
+                <th>Carbono Orgânico (ppm)</th>
+                <th>Trihalometanos (μg/L)</th>
+                <th>Turbidez (NTU)</th>
+                <th>Potabilidade</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
 
+    </section>
+
+     <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+      <div class="wave wave3"></div>
+      <div class="wave wave4"></div>
+    <script src="scripts.js"></script>
+  </body>
 </html>
-
-
