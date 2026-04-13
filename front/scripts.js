@@ -34,7 +34,7 @@ async function addWater() {
   };
 
   try {
-    const response = await fetch(`${API_URL}/water`, {
+    const response = await fetch(`${API_URL}/waters`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
@@ -62,7 +62,7 @@ async function addWater() {
 
 async function deleteWater(id) {
   try {
-    const response = await fetch(`${API_URL}/water/${id}`, { method: 'DELETE' });
+    const response = await fetch(`${API_URL}/waters/${id}`, { method: 'DELETE' });
 
     if (!response.ok) {
       const err = await response.json();
