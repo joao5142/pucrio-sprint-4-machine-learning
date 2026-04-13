@@ -39,19 +39,19 @@ def docs():
     return redirect("/openapi")
 
 
-@app.post("/water", tags=[water_tag],
+@app.post("/waters", tags=[water_tag],
           responses={"200": WaterViewSchema, "400": ErrorSchema})
 def add_water(body: WaterSchema):
     """Adiciona uma nova amostra de agua.
 
     Realiza a predicao pelo modelo treinado e adiciona no objeto para salvar.
     """
-    ml_model = Model()
-    ml_model.carrega_modelo(MODEL_PATH)
+    machine_learning_model = Model()
+    machine_learning_model.carrega_modelo(MODEL_PATH)
 
-    preprocessador = PreProcessador()
-    X_input = preprocessador.preparar_form(body)
-    potability = bool(ml_model.preditor(X_input)[0])
+    pre_processador = PreProcessador()
+    processed_data = pre_processador.preparar_form(body)
+    potability = bool(machine_learning_model.preditor(processed_data)[0])
 
     water = Water(
         ph=body.ph,
@@ -90,7 +90,7 @@ def get_waters():
         session.close()
 
 
-@app.get("/water/<int:id>", tags=[water_tag],
+@app.get("/waters/<int:id>", tags=[water_tag],
          responses={"200": WaterViewSchema, "400": ErrorSchema})
 def get_water(path: WaterPathSchema):
     """Busca uma amostra de agua pelo ID."""
@@ -104,7 +104,7 @@ def get_water(path: WaterPathSchema):
         session.close()
 
  
-@app.delete("/water/<int:id>", tags=[water_tag],
+@app.delete("/waters/<int:id>", tags=[water_tag],
             responses={"200": WaterDelSchema, "400": ErrorSchema})
 def delete_water(path: WaterPathSchema):
     """Remove uma amostra de agua pelo ID."""
